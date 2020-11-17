@@ -1,0 +1,20 @@
+line = input()
+my_dict = {}
+while line != "buy":
+    product, price,quantity = line.split()
+    price = float(price)
+    quantity = int(quantity)
+    if not product in my_dict:
+        my_dict[product] = [0, 0]
+    my_dict[product][0] = price
+    my_dict[product][1] += quantity
+
+    line = input()
+for key,value in my_dict.items():
+    print(f"{key} -> {(value[0] * value[1]):.2f}")
+
+    
+    
+    
+    
+ 
