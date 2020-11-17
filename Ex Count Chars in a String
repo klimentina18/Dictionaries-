@@ -1,0 +1,11 @@
+text = input()
+dict = {}
+
+for l in text:
+    if not l == " ":
+        if not l in dict:
+            dict[l] = 0
+        dict[l] += 1
+
+for key,value in dict.items():
+    print(f"{key} -> {value}")
