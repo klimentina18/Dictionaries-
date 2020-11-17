@@ -1,0 +1,45 @@
+dictionary = {}
+flag  = True
+while flag:
+    my_list = input().split()
+
+    for i in range(0, len(my_list), 2):
+        quantity = int(my_list[i])
+        key = my_list[i + 1].lower()
+        if not key in dictionary:
+            dictionary[key] = 0
+        dictionary[key] += quantity
+
+        if "shards" in dictionary:
+            if dictionary["shards"] >= 250:
+                dictionary["shards"] -= 250
+                print("Shadowmourne obtained!")
+                flag = False
+                break
+        if "fragments" in dictionary:
+            if dictionary["fragments"] >= 250:
+                dictionary["fragments"] -= 250
+                print("Valanyr obtained!")
+                flag = False
+                break
+        if "motes" in dictionary:
+            if dictionary["motes"] >= 250:
+                dictionary["motes"] -= 250
+                print("Dragonwrath obtained!")
+                flag = False
+                break
+    my_list = []
+
+searched = {"shards": 0, "fragments": 0, "motes": 0}
+for key,value in dictionary.items():
+    if key == "shards" or key == "fragments" or key == "motes":
+        searched[key] +=  value
+searched = dict(sorted(searched.items()))
+searched = dict(sorted(searched.items(), key = lambda x: x[1], reverse= True))
+for key,value in searched.items():
+    print(f"{key}: {value}")
+two_dict = {key: value for key,value in dictionary.items() if key != "shards" and key!= "fragments" and key!= "motes"}
+
+two_dict = dict(sorted(two_dict.items(), key = lambda x: x[0]))
+for key,value in two_dict.items():
+    print(f"{key}: {value}")
