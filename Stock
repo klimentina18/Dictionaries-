@@ -1,0 +1,13 @@
+products = input().split(" ")
+my_dict = {}
+for i in range (0, len(products), 2):
+    key = products[i]
+    value = products[i + 1]
+    my_dict[key] = int(value)
+
+items = input().split(" ")
+for product in items:
+    if product in products:
+        print(f"We have {my_dict[product]} of {product} left")
+    else:
+        print(f"Sorry, we don't have {product}")
