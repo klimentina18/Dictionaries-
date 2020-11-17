@@ -1,0 +1,21 @@
+words = input().split()
+dict = {}
+for word in words:
+    word_l = word.lower()
+    if word_l  not in dict:
+        dict[word_l] = 0
+    dict[word_l] += 1
+
+for key,value in dict.items():
+    if value % 2 != 0:
+        print(key, end=" "
+        
+        
+#words = input().split()
+#dict = {}
+#words = [word.lower() for word in words]
+#for word in words:
+    #dict[word] = words.count(word)
+#for key,value in dict.items():
+    #if value % 2 != 0:
+        #print(key, end=" "
